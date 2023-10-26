@@ -6,11 +6,25 @@
     */
 
     //Entrada
+    const senhaCorreta = "1234"; 
+let senhaInserida;
+let tentativas = 0;
 
+//Processamento
+do {
+  senhaInserida = prompt("Digite a senha (4 números inteiros):");
 
-    //Processamento
+  if (senhaInserida === senhaCorreta) {
+    alert("Senha Correta");
+  } else {
+    alert("Senha Incorreta");
+    tentativas++;
+  }
+} while (senhaInserida !== senhaCorreta && tentativas < 3);
 
-
-    //Saída
+//Saída
+if (tentativas >= 3) {
+  alert("Você excedeu o número máximo de tentativas. Acesso bloqueado.");
+}
 
 </script>

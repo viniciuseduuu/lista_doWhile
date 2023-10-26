@@ -6,11 +6,22 @@
     */
 
     //Entrada
-
+    const MIN_NOTA = 0;
+    const MAX_NOTA = 10;
 
     //Processamento
+    let nota;
 
+    do {
+        nota = parseFloat(prompt("Digite uma nota entre 0 e 10:"));
+
+        if (isNaN(nota) || nota < MIN_NOTA || nota > MAX_NOTA) {
+            alert("Valor inválido. Por favor, digite uma nota válida entre 0 e 10.");
+        }
+    } while (isNaN(nota) || nota < MIN_NOTA || nota > MAX_NOTA);
 
     //Saída
+    alert("Você digitou uma nota válida: " + nota);
+
 
 </script>

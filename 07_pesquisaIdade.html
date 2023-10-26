@@ -13,11 +13,55 @@
     */
 
     //Entrada
+    let salario, idade, sexo;
+let mediaSalarios = 0;
+let maiorIdade = Number.MIN_VALUE;
+let menorIdade = Number.MAX_VALUE;
+let menorSalario = Number.MAX_VALUE;
+let idadeMenorSalario, sexoMenorSalario;
+let mulheresNaRegiao = 0;
+let totalSalarios = 0;
+let totalPessoas = 0;
 
+//Processamento
+do {
+  idade = parseInt(prompt("Digite a idade (ou uma idade negativa para encerrar):"));
 
-    //Processamento
+  if (idade >= 0) {
+    sexo = prompt("Digite o sexo (M/F):");
+    salario = parseFloat(prompt("Digite o salário:"));
 
+    totalPessoas++;
+    totalSalarios += salario;
 
-    //Saída
+    mediaSalarios = totalSalarios / totalPessoas;
+
+    if (idade > maiorIdade) {
+      maiorIdade = idade;
+    }
+
+    if (idade < menorIdade) {
+      menorIdade = idade;
+    }
+
+    if (sexo === 'F' || sexo === 'f') {
+      mulheresNaRegiao++;
+    }
+
+    if (salario < menorSalario) {
+      menorSalario = salario;
+      idadeMenorSalario = idade;
+      sexoMenorSalario = sexo;
+    }
+  }
+} while (idade >= 0);
+
+//Saída
+alert(`Resultados da pesquisa:
+a) Média dos salários: ${mediaSalarios.toFixed(2)}
+b) Maior idade: ${maiorIdade}
+   Menor idade: ${menorIdade}
+c) Quantidade de mulheres na região: ${mulheresNaRegiao}
+d) Pessoa com menor salário: Idade: ${idadeMenorSalario}, Sexo: ${sexoMenorSalario}`);
 
 </script>

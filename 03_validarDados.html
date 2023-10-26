@@ -12,10 +12,89 @@
 
     //Entrada
 
+    const MIN_NOME = 4;
+    const MIN_IDADE = 0;
+    const MAX_IDADE = 150;
+    const MIN_SALARIO = 0.0;
+    const SEXO_F = "f";
+    const SEXO_M = "m";
+    const ESTADO_CIVIL_S = "s";
+    const ESTADO_CIVIL_C = "c";
+    const ESTADO_CIVIL_V = "v";
+    const ESTADO_CIVIL_D = "d";
 
-    //Processamento
+    function main() {
+
+        let nome = "";
+        let idade = 0;
+        let salario = 0.0;
+        let sexo = "";
+        let estado_civil = "";
+
+        //Processamento
+        do {
+
+            nome = prompt("Digite seu nome: ");
+
+            if (nome.length < MIN_NOME) {
+                alert("Nome inválido. O nome deve ter mais de 3 caracteres.");
+            }
+        } while (nome.length < MIN_NOME);
+
+        do {
+
+            idade = Number(prompt("Digite sua idade: "));
 
 
-    //Saída
+            if (idade < MIN_IDADE || idade > MAX_IDADE) {
+                alert("Idade inválida. A idade deve estar entre 0 e 150 anos.");
+            }
+        } while (idade < MIN_IDADE || idade > MAX_IDADE);
+
+
+        do {
+
+            salario = Number(prompt("Digite seu salário: "));
+
+            if (salario <= 0.0) {
+                alert("Salário inválido. O salário deve ser maior que zero.");
+            }
+        } while (salario <= 0.0);
+
+
+        do {
+
+            sexo = prompt("Digite seu sexo (f/m): ");
+
+
+            if (sexo != SEXO_F && sexo != SEXO_M) {
+                alert("Sexo inválido. O sexo deve ser f ou m.");
+            }
+        } while (sexo != SEXO_F && sexo != SEXO_M);
+
+
+        do {
+
+            estado_civil = prompt("Digite seu estado civil (s/c/v/d): ");
+
+
+            if (estado_civil != ESTADO_CIVIL_S && estado_civil != ESTADO_CIVIL_C &&
+                estado_civil != ESTADO_CIVIL_V && estado_civil != ESTADO_CIVIL_D) {
+                alert("Estado civil inválido. O estado civil deve ser s, c, v ou d.");
+            }
+        } while (estado_civil != ESTADO_CIVIL_S && estado_civil != ESTADO_CIVIL_C &&
+        estado_civil != ESTADO_CIVIL_V && estado_civil != ESTADO_CIVIL_D);
+
+        //Saída
+        alert(`Nome: ${nome}`);
+        alert(`Idade: ${idade}`);
+        alert(`Salário: ${salario}`);
+        alert(`Sexo: ${sexo}`);
+        alert(`Estado civil: ${estado_civil}`);
+    }
+
+
+    main();
+
 
 </script>

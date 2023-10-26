@@ -6,11 +6,24 @@
     */
 
     //Entrada
-
+    const MIN_LENGTH = 1;
 
     //Processamento
+    let usuario;
+    let senha;
 
+    do {
+        usuario = prompt("Digite seu nome de usuário:");
+        senha = prompt("Digite sua senha:");
+
+        if (usuario === senha) {
+            alert("Erro: A senha não pode ser igual ao nome de usuário. Tente novamente.");
+        } else if (usuario.length < MIN_LENGTH || senha.length < MIN_LENGTH) {
+            alert("Erro: O nome de usuário e a senha devem ter pelo menos " + MIN_LENGTH + " caractere(s). Tente novamente.");
+        }
+    } while (usuario === senha || usuario.length < MIN_LENGTH || senha.length < MIN_LENGTH);
 
     //Saída
+    alert("Nome de usuário e senha aceitos!");
 
 </script>

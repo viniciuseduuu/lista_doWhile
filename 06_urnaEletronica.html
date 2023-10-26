@@ -20,12 +20,75 @@
     */
 
     //Entrada
+    const OPCOES = {
+  1: "Candidato Joãozinho",
+  2: "Candidato Mariazinha",
+  3: "Nulo",
+  4: "Branco",
+};
+
+let votos = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+};
+
+let votosNulos = 0;
+let votosBrancos = 0;
+let totalEleitores = 0;
+let vencedor = null;
+
+let voto;
+
+//Processamento
+do {
+  let mensagem = "As opções são:\n";
+  for (const opcao in OPCOES) {
+    mensagem += `${opcao}. ${OPCOES[opcao]}\n`;
+  }
+  mensagem += "Entre com o seu voto (0 para encerrar):";
+
+  voto = parseInt(prompt(mensagem));
+
+  if (voto === 0) {
+    break; 
+  } else if (OPCOES[voto]) {
+    votos[voto]++;
+    totalEleitores++;
+  } else {
+    if (voto === 3) {
+      votosNulos++;
+      totalEleitores++;
+    } else if (voto === 4) {
+      votosBrancos++;
+      totalEleitores++;
+    } else {
+      alert("Opção inválida. Por favor, escolha uma opção válida.");
+    }
+  }
+} while (true);
 
 
-    //Processamento
+const porcentagemNulos = (votosNulos / totalEleitores) * 100;
+const porcentagemBrancos = (votosBrancos / totalEleitores) * 100;
 
 
-    //Saída
+if (votos[1] > votos[2]) {
+  vencedor = "Candidato Joãozinho";
+} else if (votos[2] > votos[1]) {
+  vencedor = "Candidato Mariazinha";
+} else {
+  vencedor = "Empate";
+}
+
+//Saída
+alert(`Resultados da votação:
+1. Candidato Joãozinho: ${votos[1]} votos
+2. Candidato Mariazinha: ${votos[2]} votos
+3. Votos Nulos: ${votosNulos} votos (${porcentagemNulos.toFixed(2)}%)
+4. Votos Brancos: ${votosBrancos} votos (${porcentagemBrancos.toFixed(2)}%)
+Candidato Vencedor: ${vencedor}`);
 
 </script>
 

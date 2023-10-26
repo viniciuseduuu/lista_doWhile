@@ -6,11 +6,40 @@
     */
 
     //Entrada
+const POPULAÇÃO_A = 80000;
+const TAX_A = 0.03;
+const POPULAÇÃO_B = 200000;
+const TAX_B = 0.015;
 
 
-    //Processamento
+function main() {
 
+  let ano = 0;
+  let populaçãoA = POPULAÇÃO_A;
+  let populaçãoB = POPULAÇÃO_B;
 
-    //Saída
+//Processamento
+  do {
+    
+    populaçãoA = populaçãoA * (1 + TAX_A);
+
+    
+    populaçãoB = populaçãoB * (1 + TAX_B);
+
+    
+    if (populaçãoA >= populaçãoB) {
+      break;
+    }
+
+    
+    ano++;
+  } while (true);
+
+  
+  alert(`Após ${ano} anos, a população de A ultrapassou ou igualou a população de B.`);
+}
+
+//Saída
+main();
 
 </script>
